@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: alpha-ai
+    runtime: docker
+    plan: free
+    healthCheckPath: /manifest.webmanifest
+    envVars:
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: ACCESS_KEY
+        sync: false
+      - key: DEFAULT_MODEL
+        value: openai/gpt-4o-mini
