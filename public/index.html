@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Alpha</title>
+<meta name="theme-color" content="#15122b">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div id="app">
+  <aside id="side">
+    <div class="brand"><span class="mark">α</span><b>Alpha</b></div>
+    <button id="newChat">New chat</button>
+    <input id="search" placeholder="Search chats" aria-label="Search chats">
+    <nav id="list" aria-label="Chats"></nav>
+    <div class="foot"><button id="filesBtn">Files</button><button id="setBtn">Settings</button></div>
+  </aside>
+
+  <main>
+    <header>
+      <button id="menu" aria-label="Open chats">Chats</button>
+      <input id="model" list="models" aria-label="Model" placeholder="Model">
+      <datalist id="models"></datalist>
+      <select id="mode" aria-label="Command running">
+        <option value="off">Chat only</option>
+        <option value="ask">Agent: ask first</option>
+        <option value="auto">Agent: auto-run</option>
+      </select>
+      <span id="net" class="net" title="Connection"></span>
+      <button id="export" title="Download this chat as Markdown">Export</button>
+      <button id="theme" aria-label="Toggle theme">Theme</button>
+    </header>
+    <section id="msgs" aria-live="polite"></section>
+    <form id="composer" autocomplete="off">
+      <button type="button" id="attach" aria-label="Attach a text file">+</button>
+      <input type="file" id="file" hidden>
+      <textarea id="input" rows="1" placeholder="Message Alpha" aria-label="Message"></textarea>
+      <button type="button" id="mic" aria-label="Dictate">Mic</button>
+      <button id="send" type="submit">Send</button>
+    </form>
+  </main>
+
+  <aside id="drawer" hidden>
+    <div class="dh"><b>Workspace files</b><button id="closeFiles">Close</button></div>
+    <div id="files"></div>
+  </aside>
+</div>
+
+<dialog id="settings">
+  <form method="dialog">
+    <h3>Settings</h3>
+    <label>Access key<input id="key" type="password" placeholder="Only if the server has ACCESS_KEY"></label>
+    <label>Custom instructions<textarea id="sys" rows="4" placeholder="Tone, role, things Alpha should always remember"></textarea></label>
+    <p id="credits" class="mute"></p>
+    <div class="row"><button type="button" id="clearAll">Delete all chats</button><button value="ok" class="primary">Save</button></div>
+  </form>
+</dialog>
+<script src="app.js"></script>
+</body>
+</html>
